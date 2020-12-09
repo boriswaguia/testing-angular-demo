@@ -1,0 +1,35 @@
+<button class="" id="e2e-aauszahlung-konten-add" (click)="openAddForm()">Add</button>
+
+<form id="e2e-auszahlung-konten-form" [formGroup]="auszahlungKontenForm" name="auszahlungKontenForm" *ngIf="isFormOpen">
+
+  <p *ngIf="messages?.length" id="e2e-auszahlung-konten-form-saved">
+    <span *ngFor="let m of messages">{{m}}<br></span>
+  </p>
+
+  <div>
+    <div>
+        <label>Name:</label>
+        <input type="text" formControlName="name" id="name" />
+    </div>
+    <div>
+        <label>Kontoart:</label>
+        <input type="text" formControlName="kontoart" id="kontoart" />
+    </div>
+    <div>
+        <label>Bic:</label>
+        <input type="text" formControlName="bic" id="bic"/>
+    </div>
+    <div>
+        <label>Iban:</label>
+        <input type="text" formControlName="iban" id="iban"/>
+    </div>
+    <div>
+        <label>Kontonummer:</label>
+        <input type="text" formControlName="kontonummer" id="kontonummer"/>
+    </div>
+    <div>
+        <button type="submit" [disabled]="auszahlungKontenForm.invalid" (click)="save()" id="e2e-auszahlung-konten-form-save">Save</button>
+        <button type="reset">Reset</button>
+    </div>
+  </div>
+</form>
